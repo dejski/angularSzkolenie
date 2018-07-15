@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Car } from '../models/car';
 import { preserveWhitespacesDefault } from '../../../../node_modules/@angular/compiler';
 
 @Component({
   selector: 'cars-list',
   templateUrl: './cars-list.component.html',
-  styleUrls: ['./cars-list.component.less']
+  styleUrls: ['./cars-list.component.less'],
+  encapsulation:ViewEncapsulation.None
 })
 export class CarsListComponent implements OnInit {
   totalCost: number;
