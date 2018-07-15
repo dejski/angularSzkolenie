@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../models/car';
+import { preserveWhitespacesDefault } from '../../../../node_modules/@angular/compiler';
 
 @Component({
   selector: 'cars-list',
@@ -7,6 +8,7 @@ import { Car } from '../models/car';
   styleUrls: ['./cars-list.component.less']
 })
 export class CarsListComponent implements OnInit {
+  totalCost: number;
   cars: Car[] = [
     {
       id: 1,
@@ -50,7 +52,20 @@ export class CarsListComponent implements OnInit {
   ]
   constructor() { }
 
+
   ngOnInit() {
+    this.countTotalCost();
   }
+
+
+  
+  countTotalCost(): void {
+    this.totalCost = this.cars
+      .map((car) => car.cost)
+      .reduce((prev, next) => prev + next);
+
+  };
+
+
 
 }
