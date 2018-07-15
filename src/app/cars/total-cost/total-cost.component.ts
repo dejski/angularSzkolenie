@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'cs-total-cost',
@@ -7,6 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TotalCostComponent {
   @Input() kosztWPodkomponencie: number;
+  @Output() shownGross: EventEmitter<number> = new EventEmitter<number>();
+  private VAT: number = 1.23;
   constructor() { }
+
+  showGross(): void {
+    this.shownGross.emit(this.kosztWPodkomponencie * this.VAT);
+  }
 
 }

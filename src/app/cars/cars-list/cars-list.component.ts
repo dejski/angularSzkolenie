@@ -6,10 +6,12 @@ import { preserveWhitespacesDefault } from '../../../../node_modules/@angular/co
   selector: 'cars-list',
   templateUrl: './cars-list.component.html',
   styleUrls: ['./cars-list.component.less'],
-  encapsulation:ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class CarsListComponent implements OnInit {
   totalCost: number;
+  grossCost: number;
+
   cars: Car[] = [
     {
       id: 1,
@@ -59,7 +61,7 @@ export class CarsListComponent implements OnInit {
   }
 
 
-  
+
   countTotalCost(): void {
     this.totalCost = this.cars
       .map((car) => car.cost)
@@ -67,6 +69,10 @@ export class CarsListComponent implements OnInit {
 
   };
 
+
+  onShownGross(grossCost: number): void {
+    this.grossCost = grossCost;
+  }
 
 
 }
