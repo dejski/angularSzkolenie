@@ -9,7 +9,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class TotalCostComponent {
   @Input() kosztWPodkomponencie: number;
   @Output() shownGross: EventEmitter<number> = new EventEmitter<number>();
-  private VAT: number = 1.23;
+  private VAT = 1.23;
   constructor() { }
 
   showGross(): void {
