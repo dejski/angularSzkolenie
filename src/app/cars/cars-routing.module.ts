@@ -1,11 +1,14 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Route } from '@angular/router';
-import { CarsListComponent } from './cars-list/cars-list.component';
-import { CarDetailsComponent } from './car-details/car-details.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Route } from "@angular/router";
+import { CarDetailsComponent } from "./car-details/car-details.component";
+import { CarResolve } from "./car-resolve.service";
 
 const CARS_ROUTES: Route[] = [
-    { path: 'cars', component: CarsListComponent },
-    { path: 'cars/:id', component: CarDetailsComponent}
+    {
+        path: 'cars/:id',
+        component: <any>CarDetailsComponent,
+        resolve: { car: CarResolve }
+    }
 ];
 
 @NgModule({
@@ -17,4 +20,4 @@ const CARS_ROUTES: Route[] = [
     ]
 })
 
-export class CarsRoutingModule {}
+export class CarsRoutingModule { }
