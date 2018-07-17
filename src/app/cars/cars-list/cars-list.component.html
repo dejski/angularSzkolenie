@@ -66,6 +66,7 @@
       <div class="col-sm-4">
         <label>Model</label>
         <input formControlName="model" type="text" class="form-control" placeholder="Model">
+        <p *ngIf="!carForm.get('model').valid && carForm.get('model').dirty" class="error">Pole wymagane!</p>
       </div>
       <div class="col-sm-4">
         <label>Type</label>
@@ -74,6 +75,7 @@
       <div class="col-sm-4">
         <label>Plate</label>
         <input formControlName="plate" type="text" class="form-control" placeholder="Plate">
+        <p *ngIf="!carForm.get('plate').valid && carForm.get('plate').dirty" class="error">Pole wymagane! Pole 3 do 7 znakow</p>
       </div>
     </div>
 
@@ -123,7 +125,7 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <button type="submit" class="btn btn-primary float-right">Zapisz</button>
+        <button [disabled]="carForm.invalid" type="submit" class="btn btn-primary float-right">Zapisz</button>
       </div>
     </div>
   </form>
