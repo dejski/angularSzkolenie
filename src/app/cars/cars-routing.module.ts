@@ -1,7 +1,7 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Route } from "@angular/router";
-import { CarDetailsComponent } from "./car-details/car-details.component";
-import { CarResolve } from "./car-resolve.service";
+import { NgModule } from '@angular/core';
+import { RouterModule, Route } from '@angular/router';
+import { CarDetailsComponent } from './car-details/car-details.component';
+import { CarResolve } from './car-resolve.service';
 
 const CARS_ROUTES: Route[] = [
     {
