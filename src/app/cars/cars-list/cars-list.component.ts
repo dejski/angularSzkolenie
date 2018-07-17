@@ -3,7 +3,7 @@ import { Car } from '../models/car';
 import { TotalCostComponent } from '../total-cost/total-cost.component';
 import { CarsService } from '../cars.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class CarsListComponent implements OnInit, AfterViewInit {
   @ViewChild('totalCostRef') totalCostRef: TotalCostComponent;
   totalCost: number;
   grossCost: number;
-  carForm :FormGroup;
+  carForm: FormGroup;
 
   cars: Car[];
   constructor(private carsService: CarsService,
@@ -31,9 +31,9 @@ export class CarsListComponent implements OnInit, AfterViewInit {
 
   buildCarForm() {
     return this.formBuilder.group({
-      model: '',
+      model: ['', Validators.required],
       type: '',
-      plate: '',
+      plate: ['', [ Validators.required, Validators.minLength(3), Validators.maxLength(7)]],
       deliveryDate: '',
       deadline: '',
       color: '',
